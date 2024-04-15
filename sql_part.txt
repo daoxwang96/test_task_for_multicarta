@@ -24,6 +24,7 @@ group by c.gender;
 
 select concat(c.surname, ' ',  c.name) as surname_name, f.name as firm_name, o.ord_time, o.amount
 from Client c
+--тут используется left join, т.к. у некоторых клиентов может не быть фирмы, а нам нужны именно заказы клиентов
 left join Firm f on c.firm_id = f.id
 join Orders o on o.client_id = c.id
 order by c.surname, c.name, o.ord_time;
